@@ -1,10 +1,14 @@
+// Set up your root reducer here...
 import { combineReducers } from 'redux';
-import fuelSavings from './fuelSavingsReducer';
-import {routerReducer} from 'react-router-redux';
+import booksReducer from './bookReducer'
+import books from './bookReducer'
+import * as bookActions from '../actions/bookActions'
+import configureStore from '../store/configureStore'
 
-const rootReducer = combineReducers({
-  fuelSavings,
-  routing: routerReducer
-});
+const store = configureStore()
 
-export default rootReducer;
+store.dispatch(bookActions.fetchBooks())
+
+ export default combineReducers({
+   books: booksReducer
+ })
