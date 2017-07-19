@@ -9,7 +9,14 @@ class BookDetailsPage extends React.Component {
     super(props, context)
   }
 
+  componentWillMount () {
+    let { fetchBookById, bookID } = this.props
+    fetchBookById(bookID)
+  }
+
   render() {
+    let { book } = this.props
+    if (!book) { return null }
     return (
       <div>
         <h1>Book Details Page</h1>
@@ -22,7 +29,8 @@ class BookDetailsPage extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    book: state.book
+    book: state.book,
+    bookID: ownProps.params.id
   }
 }
 

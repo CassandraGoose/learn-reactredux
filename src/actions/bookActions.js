@@ -52,7 +52,7 @@ export const createBook = (book) => {
 
 export const fetchBookById = (bookId) => {
   return (dispatch) => {
-    return Axios.get(apiUrl + '/' + bookId)
+    return Axios.get(apiUrl + 'books/' + bookId)
       .then(response => {
         dispatch(fetchBookByIdSuccess(response.data))
       })
