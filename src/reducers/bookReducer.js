@@ -1,3 +1,5 @@
+import actionTypes from '../actions/bookActions'
+
 export const booksReducer = (state = [], action) => {
   switch (action.type) {
     case 'CREATE_BOOK_SUCCESS':
@@ -11,6 +13,12 @@ export const booksReducer = (state = [], action) => {
       return state
   }
 }
-
-
-export default booksReducer
+// 
+// export const bookReducer = (state = [], action) => {
+//   switch (action.type) {
+//     case actionTypes.FETCH_BOOKS_BY_ID_SUCCESS:
+//       return action.book
+//     default:
+//       return state
+//   }
+// }

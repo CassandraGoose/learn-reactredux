@@ -13,7 +13,7 @@ class BookDetailsPage extends React.Component {
     return (
       <div>
         <h1>Book Details Page</h1>
-        <BookDetails />
+        <BookDetails book={this.props.book}/>
       </div>
     )
   }
@@ -28,8 +28,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    //actions mappings herrrrr
-  }
+    fetchBookById: bookId => dispatch(bookActions.fetchBookById(bookId))
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookDetailsPage)

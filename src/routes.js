@@ -11,5 +11,6 @@ export default (
     <IndexRoute component={Home}></IndexRoute>
     <Route path="/about" component={About}></Route>
     <Route path="/books" component={Book}></Route>
+    <Route path="/books/:id" component={BookDetailsPage}></Route>
   </Route>
 )

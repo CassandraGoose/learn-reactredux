@@ -18,6 +18,13 @@ export const createBookSuccess = (book) => {
   }
 }
 
+export const fetchBookByIdSuccess = (book) => {
+  return {
+    type: 'FETCH_BOOKS_BY_ID_SUCCESS',
+    book
+  }
+}
+
 export const fetchBooks = () => {
   return (dispatch) => {
     return Axios.get(apiUrl)
@@ -36,6 +43,18 @@ export const createBook = (book) => {
     return Axios.post(apiUrl, book)
       .then(response => {
         dispatch(createBookSuccess(response.data))
+      })
+      .catch(error => {
+        throw(error)
+      })
+  }
+}
+
+export const fetchBookById = (bookId) => {
+  return (dispatch) => {
+    return Axios.get(apiUrl + '/' + bookId)
+      .then(response => {
+        dispatch(fetchBookByIdSuccess(response.data))
       })
       .catch(error => {
         throw(error)
