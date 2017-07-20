@@ -19,6 +19,11 @@ class EditBookPage extends React.Component {
     this.setState({value: event.target.value})
   }
 
+  submit (e) {
+   e.preventDefault()
+   console.log('i want to call the function from my stupid bookpage here wtf');
+ }
+
   componentWillMount () {
     let { fetchBookById, bookID } = this.props
     fetchBookById(bookID)
@@ -34,11 +39,7 @@ class EditBookPage extends React.Component {
       <div>
         <h1>Book Edit Page</h1>
         <section>
-        <form onSubmit={e => {
-          e.preventDefault()
-          {submitEditBook}
-          e.target.reset()
-        }}
+        <form onSubmit={this.submit}
         className="form-horizontal">
         <div className="input-group">
           <label className="col-sm-2 control-label">Title: </label>
