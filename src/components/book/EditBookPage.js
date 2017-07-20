@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import BookDetails from './BookDetails'
+import submitEditBook from './BookPage'
 import * as bookActions from '../../actions/bookActions'
 
 class EditBookPage extends React.Component {
@@ -24,7 +25,9 @@ class EditBookPage extends React.Component {
   }
 
   render() {
+
     console.log('editbookpage', this.props);
+    let titleInput = this.props
     let { book } = this.props
     if (!book) { return null }
     return (
@@ -33,14 +36,15 @@ class EditBookPage extends React.Component {
         <section>
         <form onSubmit={e => {
           e.preventDefault()
-          props.submitEditBook(input)
+          {submitEditBook}
           e.target.reset()
         }}
         className="form-horizontal">
         <div className="input-group">
           <label className="col-sm-2 control-label">Title: </label>
           <div className="col-sm-10">
-             <input type="text" value={this.state.value} onChange={this.handleChange} name="title"
+             <input type="text" value={this.state.value} onChange={this.handleChange}
+              name="title"
               className="form-control"/>
           </div>
         </div>
