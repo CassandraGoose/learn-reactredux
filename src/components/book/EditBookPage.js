@@ -2,9 +2,10 @@ import React, {PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import BookDetails from './BookDetails'
+import EditForm from './EditForm'
 import * as bookActions from '../../actions/bookActions'
 
-class BookDetailsPage extends React.Component {
+class EditBookPage extends React.Component {
   constructor(props, context) {
     super(props, context)
   }
@@ -15,12 +16,13 @@ class BookDetailsPage extends React.Component {
   }
 
   render() {
+    console.log('editbookpage', this.props);
     let { book } = this.props
     if (!book) { return null }
     return (
       <div>
-        <h1>Book Details Page</h1>
-        <BookDetails book={this.props.book}/>
+        <h1>Book Edit Page</h1>
+        <EditForm book={this.props.book.title}/>
       </div>
     )
   }
@@ -39,4 +41,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BookDetailsPage)
+export default connect(mapStateToProps, mapDispatchToProps)(EditBookPage)

@@ -1,6 +1,8 @@
 import React, {PropTypes} from 'react';
+import {Link} from 'react-router'
 
 const BookDetails = (props) => {
+  console.log(props);
   return (
     <div className="media">
       <div className="media-left">
@@ -11,7 +13,7 @@ const BookDetails = (props) => {
       <div className="media-body">
         <h4 className="media-heading">{props.book.title}</h4>
           <br/>
-          <button className="btn btn-primary">Edit</button>
+          <Link to={`/books/${props.book.id}/edit`}><button className="btn btn-primary">Edit</button></Link>
           <button className="btn btn-primary">Remove</button>
       </div>
     </div>

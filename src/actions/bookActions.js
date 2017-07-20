@@ -18,6 +18,13 @@ export const createBookSuccess = (book) => {
   }
 }
 
+export const editBookSuccess = (book) => {
+  return {
+    type: 'EDIT_BOOK_SUCCESS',
+    book
+  }
+}
+
 export const fetchBookByIdSuccess = (book) => {
   return {
     type: 'FETCH_BOOKS_BY_ID_SUCCESS',
@@ -43,6 +50,18 @@ export const createBook = (book) => {
     return Axios.post(apiUrl, book)
       .then(response => {
         dispatch(createBookSuccess(response.data))
+      })
+      .catch(error => {
+        throw(error)
+      })
+  }
+}
+
+export const editBook = (bookId, book) => {
+  return(dispatch) => {
+    return Axios.patch(apiUrl + 'books/' + bookId + '/edit', book)
+      .then(response => {
+        dispatch(editBookSuccess(response.data))
       })
       .catch(error => {
         throw(error)

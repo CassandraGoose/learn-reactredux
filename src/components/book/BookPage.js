@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import BookForm from './BookForm'
+import EditForm from './EditForm'
 import {Link} from 'react-router'
 import * as bookActions from '../../actions/bookActions'
 
@@ -11,6 +12,10 @@ class Book extends React.Component{
 
   submitBook(input){
     this.props.createBook(input)
+  }
+
+  submitEditBook(input) {
+    this.props.editBook(input)
   }
 
 
