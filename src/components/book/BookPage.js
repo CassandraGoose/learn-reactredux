@@ -18,6 +18,9 @@ class Book extends React.Component{
     this.props.editBook(input)
   }
 
+  deleteBook(input) {
+    this.props.deleteBook(input)
+  }
 
 render() {
   let titleInput
@@ -59,7 +62,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createBook: book => dispatch(bookActions.createBook(book))
+    createBook: book => dispatch(bookActions.createBook(book)),
+    deleteBook: book => dispatch(bookActions.deleteBook(book))
   }
 }
 

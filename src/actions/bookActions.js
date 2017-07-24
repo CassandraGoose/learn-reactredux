@@ -18,6 +18,13 @@ export const createBookSuccess = (book) => {
   }
 }
 
+export const deleteBookSuccess = (book) => {
+  return {
+    type: 'DELETE_BOOK_SUCCESS',
+    book
+  }
+}
+
 export const editBookSuccess = (book) => {
   return {
     type: 'EDIT_BOOK_SUCCESS',
@@ -48,6 +55,18 @@ export const fetchBooks = () => {
 export const createBook = (book) => {
   return(dispatch) => {
     return Axios.post(apiUrl, book)
+      .then(response => {
+        dispatch(createBookSuccess(response.data))
+      })
+      .catch(error => {
+        throw(error)
+      })
+  }
+}
+
+export const deleteBook = (book) => {
+  return(dispatch) => {
+    return Axios.delete(apiUrl, book)
       .then(response => {
         dispatch(createBookSuccess(response.data))
       })

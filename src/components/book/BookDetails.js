@@ -1,8 +1,12 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router'
+import {connect} from 'react-redux'
+import EditDeleteForm from './EditDeleteForm'
+import * as bookActions from '../../actions/bookActions'
 
 const BookDetails = (props) => {
-  console.log(props);
+  console.log('props', props);
+  console.log('this', this);
   return (
     <div className="media">
       <div className="media-left">
@@ -13,8 +17,7 @@ const BookDetails = (props) => {
       <div className="media-body">
         <h4 className="media-heading">{props.book.title}</h4>
           <br/>
-          <Link to={`/books/${props.book.id}/edit`}><button className="btn btn-primary">Edit</button></Link>
-          <button className="btn btn-primary">Remove</button>
+          <EditDeleteForm deleteBook={this.DeleteBook.bind(this)}></EditDeleteForm>
       </div>
     </div>
   );

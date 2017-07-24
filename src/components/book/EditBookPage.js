@@ -22,7 +22,10 @@ class EditBookPage extends React.Component {
   submit (e) {
    e.preventDefault()
    console.log('i want to call the function from my stupid bookpage here wtf');
+   console.log();
+   this.submitEditBook(this.state.value)
  }
+
 
   componentWillMount () {
     let { fetchBookById, bookID } = this.props
@@ -31,7 +34,6 @@ class EditBookPage extends React.Component {
 
   render() {
 
-    console.log('editbookpage', this.props);
     let titleInput = this.props
     let { book } = this.props
     if (!book) { return null }
