@@ -1,16 +1,13 @@
 import React from  'react'
 
-const EditDeleteForm
- = (props) => {
-  let titleInput = null
+const EditDeleteForm = (props) => {
   return (
     <form onSubmit={e => {
       e.preventDefault()
-      props.deleteBook(input)
+      props.deleteBook()
     }}
     className="form-horizontal">
     <div className="input-group">
-    <Link to={`/books/${props.book.id}/edit`}><button className="btn btn-primary">Edit</button></Link>
     <button className="btn btn-primary" type="submit">Remove</button>
     </div>
   </form>

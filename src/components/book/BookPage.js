@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import BookForm from './BookForm'
 import EditForm from './EditForm'
 import {Link} from 'react-router'
+import BookDetailsPage from './BookDetailsPage'
 import * as bookActions from '../../actions/bookActions'
 
 class Book extends React.Component{
@@ -16,10 +17,6 @@ class Book extends React.Component{
 
   submitEditBook(input) {
     this.props.editBook(input)
-  }
-
-  deleteBook(input) {
-    this.props.deleteBook(input)
   }
 
 render() {
@@ -62,8 +59,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createBook: book => dispatch(bookActions.createBook(book)),
-    deleteBook: book => dispatch(bookActions.deleteBook(book))
+    createBook: book => dispatch(bookActions.createBook(book))
   }
 }
 

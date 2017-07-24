@@ -5,8 +5,7 @@ import EditDeleteForm from './EditDeleteForm'
 import * as bookActions from '../../actions/bookActions'
 
 const BookDetails = (props) => {
-  console.log('props', props);
-  console.log('this', this);
+console.log('propsbookdetails', props);
   return (
     <div className="media">
       <div className="media-left">
@@ -17,7 +16,7 @@ const BookDetails = (props) => {
       <div className="media-body">
         <h4 className="media-heading">{props.book.title}</h4>
           <br/>
-          <EditDeleteForm deleteBook={this.DeleteBook.bind(this)}></EditDeleteForm>
+          <EditDeleteForm deleteBook={props.deleteBook.bind(this)}></EditDeleteForm>
       </div>
     </div>
   );

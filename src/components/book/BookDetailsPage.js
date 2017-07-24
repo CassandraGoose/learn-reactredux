@@ -10,17 +10,23 @@ class BookDetailsPage extends React.Component {
   }
 
   componentWillMount () {
-    let { fetchBookById, bookID } = this.props
+    let { fetchBookById, bookID, deleteBook } = this.props
     fetchBookById(bookID)
   }
 
+  deleteBook(input) {
+    this.props.deleteBook(input)
+  }
+
   render() {
+    console.log('bookdetailspage', this);
     let { book } = this.props
+    let {deleteBook} = this.props.deleteBook
     if (!book) { return null }
     return (
       <div>
         <h1>Book Details Page</h1>
-        <BookDetails book={this.props.book}/>
+        <BookDetails book={this.props} deleteBook={this.props.deleteBook}/>
       </div>
     )
   }
@@ -35,7 +41,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchBookById: bookId => dispatch(bookActions.fetchBookById(bookId))
+    fetchBookById: bookId => dispatch(bookActions.fetchBookById(bookId)),
+    deleteBook: book => dispatch(bookActions.deleteBook(book))
     }
 }
 

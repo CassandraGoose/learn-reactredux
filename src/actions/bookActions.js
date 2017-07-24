@@ -18,10 +18,9 @@ export const createBookSuccess = (book) => {
   }
 }
 
-export const deleteBookSuccess = (book) => {
+export const deleteBookSuccess = () => {
   return {
-    type: 'DELETE_BOOK_SUCCESS',
-    book
+    type: 'DELETE_BOOK_SUCCESS'
   }
 }
 
@@ -68,7 +67,7 @@ export const deleteBook = (book) => {
   return(dispatch) => {
     return Axios.delete(apiUrl, book)
       .then(response => {
-        dispatch(createBookSuccess(response.data))
+        dispatch(deleteBookSuccess(response.data))
       })
       .catch(error => {
         throw(error)
