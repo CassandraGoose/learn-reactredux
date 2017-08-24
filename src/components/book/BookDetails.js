@@ -16,7 +16,7 @@ console.log('propsbookdetails', props);
       <div className="media-body">
         <h4 className="media-heading">{props.book.title}</h4>
           <br/>
-          <EditDeleteForm deleteBook={props.deleteBook.bind(this)}></EditDeleteForm>
+          <EditDeleteForm deleteBook={props.deleteBook.bind(this)} bookID={props.book.bookID}></EditDeleteForm>
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ export const bookReducer = (state = null, action) => {
     case 'FETCH_BOOKS_BY_ID_SUCCESS':
       return action.book
      case 'DELETE_BOOK_SUCCESS':
-     return action.book
+     return action.books
     default:
       return state
   }

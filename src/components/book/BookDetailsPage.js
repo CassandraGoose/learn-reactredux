@@ -19,14 +19,15 @@ class BookDetailsPage extends React.Component {
   }
 
   render() {
-    console.log('bookdetailspage', this);
+    console.log('bookid', this.props.bookID);
     let { book } = this.props
-    let {deleteBook} = this.props.deleteBook
+    // let {bookID} = this.props.bookID
+    // let {deleteBook} = this.props.deleteBook
     if (!book) { return null }
     return (
       <div>
         <h1>Book Details Page</h1>
-        <BookDetails book={this.props} deleteBook={this.props.deleteBook}/>
+        <BookDetails book={this.props} deleteBook={this.props.deleteBook} />
       </div>
     )
   }

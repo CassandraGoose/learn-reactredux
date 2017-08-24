@@ -1,10 +1,12 @@
 import React from  'react'
 
 const EditDeleteForm = (props) => {
+  console.log('propsineditdeleteform', props);
   return (
     <form onSubmit={e => {
       e.preventDefault()
-      props.deleteBook()
+      console.log('deleting');
+      props.deleteBook(props.bookID)
     }}
     className="form-horizontal">
     <div className="input-group">
